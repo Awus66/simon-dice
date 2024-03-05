@@ -8,6 +8,7 @@ let mayorRonda = 0;
 //Actualiza mensaje de estado y ronda correspondientes al inicio del programa
 cambiarMensajeEstado('Presiona "Iniciar" para comenzar el juego');
 cambiarNumeroRonda('-');
+registrarMayorRonda('-')
 bloquearCuadros();
 
 document.querySelector('#boton-iniciar').onclick = iniciarJuego;
@@ -25,6 +26,10 @@ function cambiarMensajeEstado(estado, finDelJuego = false){
 }
 
 
+function registrarMayorRonda(ronda){
+    const $mayorRonda = document.querySelector('#mayor-ronda');
+    $mayorRonda.innerText = ronda;
+}
 
 
 function cambiarNumeroRonda(numero){
