@@ -1,11 +1,11 @@
 probarBorrarMensajesDeError();
 probarCrearMensajeDeError();
-probarLimpiarMarcoError();
+probarLimpiarMarcosDeError();
 probarLimpiarFamiliares();
-probarOcultarBotonCalculo();
-probarOcultarResultados();
 probarValidarCantidadFamiliares();
 probarValidarEdades();
+probarMostrar();
+probarOcultar();
 
 function probarBorrarMensajesDeError(){
     let cantidadErrores = 0;
@@ -41,12 +41,12 @@ function probarCrearMensajeDeError(){
 }
 
 
-function probarLimpiarMarcoError(){
+function probarLimpiarMarcosDeError(){
     const $prueba = document.createElement('div');
     $prueba.id = "prueba";
     $prueba.classList.add('error');
     document.body.appendChild($prueba);
-    limpiarMarcoError('prueba');
+    limpiarMarcosDeError('prueba');
     console.assert(
         !($prueba.classList.contains('error')), 'La función limpiarMarcoError no limpió el marco rojo de error correctamente.'
     );
@@ -70,28 +70,29 @@ function probarLimpiarFamiliares(){
 }
 
 
-function probarOcultarBotonCalculo(){
-    const $prueba = document.createElement('button');
-    $prueba.id = "boton-calcular";
+function probarOcultar(){
+    const $prueba = document.createElement('div');
+    $prueba.id = "prueba";
+    $prueba.style.display = '';
     document.body.appendChild($prueba);
-    ocultarBotonCalculo();
+    ocultar('#prueba');
     console.assert(
-        $prueba.style.display === 'none', 'ocultarBotonCalculo no ocultó el botón correctamente.'
+        $prueba.style.display === 'none', 'La función "ocultar" no ocultó el elemento correctamente.'
     );
     $prueba.remove();
-
 }
 
 
-function probarOcultarResultados(){
+function probarMostrar(){
     const $prueba = document.createElement('div');
-    $prueba.id = "resultados";
+    $prueba.id = "prueba";
+    $prueba.style.display = 'none';
     document.body.appendChild($prueba);
-    ocultarResultados();
+    ocultar('#prueba');
     console.assert(
-        $prueba.style.display === 'none', 'ocultarResultados no ocultó los resultados correctamente.'
+        $prueba.style.display === '', 'La función "mostrar" no mostró el elemento correctamente.'
     );
-    $prueba.remove();   
+    $prueba.remove();
 }
 
 
@@ -115,6 +116,12 @@ function probarValidarCantidadFamiliares(){
     validarCantidadFamiliares();
     console.assert(
         $inputFamiliares.className === 'error', 'validarCantidadFamiliares no validó correctamente que el input no pueda estar vacío.'
+    );
+
+    $inputFamiliares.value = 'aaa';
+    validarCantidadFamiliares();
+    console.assert(
+        $inputFamiliares.className === 'error', 'validarCantidadFamiliares no validó correctamente que el input no pueda contener letras.'
     );
 
     $inputFamiliares.value = 3;

@@ -1,4 +1,4 @@
-document.querySelector('#boton-enviar-cantidad-familiares').onclick = validarCantidadFamiliares;
+document.querySelector('#boton-enviar').onclick = validarCantidadFamiliares;
 document.querySelector('#boton-calcular').onclick = validarEdades;
 document.querySelector('#boton-resetear').onclick = resetear;
 
@@ -74,7 +74,7 @@ function validarCantidadFamiliares(){
     
             //Creo un div para poder manejar de manera libre a cada familiar
             const $nuevoDiv = document.createElement('div');
-            $nuevoDiv.className = 'familiar';
+            $nuevoDiv.className = 'familiar p-2';
     
             //$nuevoLabel.propiedad....
             $nuevoLabel.for = 'integrante' + i;
@@ -86,7 +86,6 @@ function validarCantidadFamiliares(){
             $nuevoInput.min = '0';
             $nuevoInput.max = '120';
             $nuevoInput.placeholder = 'Edad';
-            $nuevoInput.type = 'number';
     
     
             $nuevoDiv.appendChild($nuevoLabel);
@@ -94,39 +93,36 @@ function validarCantidadFamiliares(){
             document.querySelector('#familiares').appendChild($nuevoDiv);
             document.querySelector('form').appendChild(document.createElement('br'));
         }
-        document.querySelector('#boton-calcular').style.display = '';
+        ocultar('#boton-enviar');
+        mostrar('#boton-calcular');
+        mostrar('#boton-resetear');
     }
 }
 
 
 function limpiarFamiliares(){
-    //Borrar familiares anteriores
-    document.querySelectorAll('.familiar').forEach(function ($familiar){
-        $familiar.remove();
-    });
+    document.querySelectorAll('.familiar').forEach($familiar => $familiar.remove());
 }
 
 
-function ocultarBotonCalculo(){
-    document.querySelectorAll('#boton-calcular').forEach(function (boton){
-        boton.style.display = 'none';
-    });
+function ocultar(id){
+    document.querySelectorAll(`${id}`).forEach($elemento => $elemento.style.display = 'none');
 }
 
 
-function ocultarResultados(){
-    document.querySelectorAll('#resultados').forEach(function (resultados){
-        resultados.style.display = 'none';
-    });
+function mostrar(id){
+    document.querySelectorAll(`${id}`).forEach($elemento => $elemento.style.display = '');
 }
 
 
 function resetear(){
     limpiarFamiliares();
-    ocultarBotonCalculo();
-    ocultarResultados();
+    mostrar('#boton-enviar');
+    ocultar('#boton-calcular');
+    ocultar('#boton-resetear');
+    ocultar('#resultados');
     borrarMensajesDeError();
-    limpiarMarcoError('cantidad-familiares');
+    limpiarMarcosDeError('#cantidad-familiares');
 }
 
 
@@ -141,17 +137,11 @@ function crearMensajeDeError(){
 }
 
 
-function limpiarMarcoError(id){
-    const $input = document.querySelector(`#${id}`);
-    $input.classList.remove('error');
+function limpiarMarcosDeError(id){
+    document.querySelectorAll(`${id}`).forEach($elemento => $elemento.classList.remove('error'));
 }
 
 
 function borrarMensajesDeError(){
-    //const $error = document.querySelectorAll('#errores');
-    document.querySelectorAll('#errores').forEach(function ($error){
-        $error.innerHTML = "";
-    });
+    document.querySelectorAll('#errores').forEach($error => $error.innerHTML = "");
 }
-
-
