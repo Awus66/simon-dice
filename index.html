@@ -7,9 +7,40 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='index.js'></script>
 </head>
 <body>
-    
+    <!--Barra de estado, ronda y botón para empezar el juego-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6" id="mensaje-estado">
+            
+            </div>
+            <div class="col-sm">
+                <button type="button" class="btn btn-type-primary" id="boton-iniciar">Iniciar</button>
+            </div>
+            <div class="col-sm-2">
+                Ronda: <span id="numero-ronda"></span>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <div class="cuadro" id="cuadro-1">1</div>
+            </div>
+            <div class="col-sm">
+                <div class="cuadro" id="cuadro-2">2</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <div class="cuadro" id="cuadro-3">3</div>
+            </div>
+            <div class="col-sm">
+                <div class="cuadro" id="cuadro-4">4</div>
+            </div>
+        </div>
+    </div>
+    <script src='index.js'></script>
 </body>
 </html>
