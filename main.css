@@ -1,0 +1,38 @@
+#mensaje-estado {
+    background-color: #96c7fc;
+    text-align: left;
+}
+
+#boton-iniciar {
+    background-color: #3395fd;
+}
+
+#ronda {
+    background-color: #959ca4b9;
+}
+
+.row {
+    padding-top: 10px;
+}
+
+.cuadro {
+    height: 350px;
+    opacity: 0.65;
+    transition: opacity 500ms;
+}
+
+#cuadro-1 {
+    background-color: red;
+}
+
+#cuadro-2 {
+    background-color: green;
+}
+
+#cuadro-3 {
+    background-color: blue;
+}
+
+#cuadro-4 {
+    background-color: yellow;
+}
