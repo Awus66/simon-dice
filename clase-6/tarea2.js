@@ -16,15 +16,13 @@ function agregarFamiliar() {
 
     const $nuevoInput = document.createElement('input');
     $nuevoInput.classList.add('sueldo');
+    $nuevoInput.classList.add('m-2');
     $nuevoInput.id = 'integrante' + (index);
-    $nuevoInput.min = '1';
     $nuevoInput.placeholder = 'Sueldo';
-    $nuevoInput.type = 'number';
 
     $nuevoFamiliar.appendChild($nuevoLabel);
     $nuevoFamiliar.appendChild($nuevoInput);
     document.querySelector('#familiares').appendChild($nuevoFamiliar);
-    document.querySelector('form').appendChild(document.createElement('br'));
     
     mostrar('#boton-resetear');
     mostrar('#boton-calcular');
