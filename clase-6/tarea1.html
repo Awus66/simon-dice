@@ -10,7 +10,7 @@
 </head>
 <body>
     <form>
-        <div class="p-2 m-3 mx-auto">
+        <div class="container p-3 w-50 mt-4 text-center min-vh-100 align-items-center justify-content-center">
             <label class="form-label" for="cantidad-familiares">Cantidad de gente en el grupo familiar</label><br>
             <input aria-describedby="errores" class="form-control" id="cantidad-familiares" min="0" max="99" placeholder="Cantidad">
             <div class="p-2" id="familiares">
@@ -18,16 +18,14 @@
             </div>
             <ul id="errores" class="form-text">
             </ul>
-        </div>
-
-        <button class="btn btn-primary" type="button" id="boton-enviar">Enviar</button>
-        <button class="btn btn-primary" type="button" id="boton-calcular" style="display:none">Calcular</button>
-        <button class="btn btn-primary" type="reset" id="boton-resetear" style="display:none">Resetear</button>
-
-        <div id="resultados" style="display:none">
-            <em id="mayor-edad"></em><br>
-            <em id="menor-edad"></em><br>
-            <em id="promedio-edad"></em><br>
+            <button class="btn btn-lg btn-primary" type="button" id="boton-enviar">Enviar</button>
+            <button class="btn btn-primary" type="button" id="boton-calcular" style="display:none">Calcular</button>
+            <button class="btn btn-primary" type="reset" id="boton-resetear" style="display:none">Resetear</button>
+            <div class="p-3" id="resultados" style="display:none">
+                <em id="mayor-edad"></em><br>
+                <em id="menor-edad"></em><br>
+                <em id="promedio-edad"></em><br>
+            </div>
         </div>
     </form>
     <script type="text/javascript" src="tarea1.js"></script>
