@@ -94,7 +94,6 @@ function validarCantidadFamiliares(){
             $nuevoDiv.appendChild($nuevoLabel);
             $nuevoDiv.appendChild($nuevoInput);
             document.querySelector('#familiares').appendChild($nuevoDiv);
-            document.querySelector('form').appendChild(document.createElement('br'));
         }
         ocultar('#boton-enviar');
         mostrar('#boton-calcular');

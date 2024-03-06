@@ -7,7 +7,6 @@
     border-color: red;
 }
 
-
 div {
     background-color: white;
     border-radius: 10%;
@@ -21,4 +20,5 @@ body {
 
 .familiar {
     background-color:aliceblue;
+    display: block;
 }
