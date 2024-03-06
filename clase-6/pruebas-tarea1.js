@@ -203,4 +203,3 @@ function probarValidarEdades(){
     $prueba.remove();
     resetear();
 }
-
