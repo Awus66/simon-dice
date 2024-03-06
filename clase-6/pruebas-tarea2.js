@@ -8,6 +8,9 @@ probarOcultarResultados();
 probarLimpiarFamiliares();
 probarCalcularPromedio();
 probarValidarSueldos();
+probarMostrar();
+probarOcultar();
+
 
 function probarValidarSueldos(){
     const $nuevoSueldo = document.createElement('div');
@@ -193,4 +196,30 @@ function probarOcultarResultados(){
         $prueba.style.display === 'none', 'ocultarResultados no ocultó los resultados correctamente.'
     );
     $prueba.remove();   
+}
+
+
+function probarOcultar(){
+    const $prueba = document.createElement('div');
+    $prueba.id = "prueba";
+    $prueba.style.display = '';
+    document.body.appendChild($prueba);
+    ocultar('#prueba');
+    console.assert(
+        $prueba.style.display === 'none', 'La función "ocultar" no ocultó el elemento correctamente.'
+    );
+    $prueba.remove();
+}
+
+
+function probarMostrar(){
+    const $prueba = document.createElement('div');
+    $prueba.id = "prueba";
+    $prueba.style.display = 'none';
+    document.body.appendChild($prueba);
+    mostrar('#prueba');
+    console.assert(
+        $prueba.style.display === '', 'La función "mostrar" no mostró el elemento correctamente.'
+    );
+    $prueba.remove();
 }
