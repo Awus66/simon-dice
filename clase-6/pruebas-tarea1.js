@@ -6,6 +6,32 @@ probarValidarCantidadFamiliares();
 probarValidarEdades();
 probarMostrar();
 probarOcultar();
+probarDeshabilitarInput();
+probarHabilitarInput();
+
+function probarHabilitarInput(){
+    const $prueba = document.createElement('input');
+    $prueba.id = 'prueba';
+    $prueba.toggleAttribute('readonly', true);
+    document.body.appendChild($prueba);
+    habilitarInput('#prueba');
+    console.assert(
+        $prueba.hasAttribute('readonly'), 'La funcion habilitarInput no quitó el atributo "readonly" del input correctamente'
+    );
+    $prueba.remove();
+}
+
+function probarDeshabilitarInput(){
+    const $prueba = document.createElement('input');
+    $prueba.id = 'prueba';
+    $prueba.toggleAttribute('readonly', false);
+    document.body.appendChild($prueba);
+    deshabilitarInput('#prueba');
+    console.assert(
+        !($prueba.hasAttribute('readonly')), 'La funcion deshabilitarInput no añadió el atributo "readonly" al input correctamente'
+    );
+    $prueba.remove();
+}
 
 function probarBorrarMensajesDeError(){
     let cantidadErrores = 0;

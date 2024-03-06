@@ -65,6 +65,8 @@ function validarCantidadFamiliares(){
         $error.innerText = 'La cantidad de familiares debe ser un número entero entre 1 y 99';
     }
     else{
+        limpiarMarcosDeError('#cantidad-familiares');
+        deshabilitarInput('#cantidad-familiares');
         $inputFamiliares.className = '';
         limpiarFamiliares();
         $error.innerHTML = "";
@@ -74,14 +76,15 @@ function validarCantidadFamiliares(){
     
             //Creo un div para poder manejar de manera libre a cada familiar
             const $nuevoDiv = document.createElement('div');
-            $nuevoDiv.className = 'familiar p-2';
+            $nuevoDiv.className = 'familiar m-2';
     
             //$nuevoLabel.propiedad....
             $nuevoLabel.for = 'integrante' + i;
-            $nuevoLabel.textContent = `Edad del familiar numero ${i}:`;
+            $nuevoLabel.textContent = `Edad del familiar numero ${i}: `;
             const $nuevoInput = document.createElement('input');
             //nuevoInput.propiedad...
-            $nuevoInput.className = 'edad';
+            $nuevoInput.classList.add('edad');
+            $nuevoInput.classList.add('m-2');
             $nuevoInput.id = 'integrante' + (i);
             $nuevoInput.min = '0';
             $nuevoInput.max = '120';
@@ -121,8 +124,8 @@ function resetear(){
     ocultar('#boton-calcular');
     ocultar('#boton-resetear');
     ocultar('#resultados');
+    habilitarInput('#cantidad-familiares')
     borrarMensajesDeError();
-    limpiarMarcosDeError('#cantidad-familiares');
 }
 
 
@@ -144,4 +147,13 @@ function limpiarMarcosDeError(id){
 
 function borrarMensajesDeError(){
     document.querySelectorAll('#errores').forEach($error => $error.innerHTML = "");
+}
+
+
+function deshabilitarInput(idInput){
+    document.querySelector(`${idInput}`).toggleAttribute('readonly', true);
+}
+
+function habilitarInput(idInput){
+    document.querySelector(`${idInput}`).toggleAttribute('readonly', false);
 }
