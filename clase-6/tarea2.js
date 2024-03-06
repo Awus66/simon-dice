@@ -26,9 +26,9 @@ function agregarFamiliar() {
     document.querySelector('#familiares').appendChild($nuevoFamiliar);
     document.querySelector('form').appendChild(document.createElement('br'));
     
-    document.querySelector('#boton-resetear').style.display = '';
-    document.querySelector('#boton-calcular').style.display = '';
-    document.querySelector('#boton-quitar').style.display = '';
+    mostrar('#boton-resetear');
+    mostrar('#boton-calcular');
+    mostrar('#boton-quitar');
 }
 
 
@@ -38,11 +38,11 @@ function borrarFamiliar() {
     const index = document.getElementsByClassName('familiar').length - 1;
     $familiares[index].remove();
 
-    //Evaluo si quedaron integrantes o no para esconder el boton de calcular
+    //Evaluo si quedaron integrantes o no para esconder el boton de calcular, resetear y quitar
     if (document.getElementsByClassName('familiar').length === 0){  
-        document.querySelector('#boton-resetear').style.display = 'none';
-        document.querySelector('#boton-calcular').style.display = 'none';
-        document.querySelector('#boton-quitar').style.display = 'none';
+        ocultar('#boton-resetear');
+        ocultar('#boton-calcular');
+        ocultar('#boton-quitar');
         borrarMensajesDeError();
     }
 }
@@ -73,7 +73,7 @@ function validarSueldos() {
         document.querySelector('#mayor-sueldo').textContent = 'El mayor sueldo es ' + mayorSueldo;
         document.querySelector('#menor-sueldo').textContent = 'El menor sueldo es ' + menorSueldo;
 
-        document.querySelector('#resultados').style.display = '';   
+        mostrar('#resultados');  
     }
 }
 
@@ -87,6 +87,16 @@ function calcularPromedio(sueldos){
     }
 
     return (promedio / sueldos.length);
+}
+
+
+function ocultar(id){
+    document.querySelectorAll(`${id}`).forEach($elemento => $elemento.style.display = 'none');
+}
+
+
+function mostrar(id){
+    document.querySelectorAll(`${id}`).forEach($elemento => $elemento.style.display = '');
 }
 
 
