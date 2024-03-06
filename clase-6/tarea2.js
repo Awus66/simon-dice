@@ -4,8 +4,6 @@ document.querySelector('#boton-calcular').onclick = validarSueldos;
 document.querySelector('#boton-resetear').onclick = resetear;
 
 function agregarFamiliar() {
-
-    //Creo un div para poder manejar de manera libre a cada familiar
     const $nuevoFamiliar = document.createElement('div');
     $nuevoFamiliar.classList.add('familiar');
 
@@ -77,7 +75,6 @@ function validarSueldos() {
 
 
 function calcularPromedio(sueldos){
-    //Algoritmo para promedio
     let promedio = 0;
     for (let i = 0; i < sueldos.length; i++)
     {
@@ -99,30 +96,19 @@ function mostrar(id){
 
 
 function limpiarFamiliares(){
-    //Borrar familiares anteriores
-    document.querySelectorAll('.familiar').forEach(function ($familiar){
-        $familiar.remove();
-    });
+    document.querySelectorAll('.familiar').forEach($familiar => $familiar.remove());
 }
 
 
 function ocultarBotones(){
-    document.querySelectorAll('#boton-calcular').forEach(function ($botonCalcular){
-        $botonCalcular.style.display = 'none';
-    });
-    document.querySelectorAll('#boton-resetear').forEach(function ($botonResetear){
-        $botonResetear.style.display = 'none';
-    });
-    document.querySelectorAll('#boton-quitar').forEach(function ($botonQuitar){
-        $botonQuitar.style.display = 'none';
-    });
+    document.querySelectorAll('#boton-calcular').forEach($botonCalcular => $botonCalcular.style.display = 'none');
+    document.querySelectorAll('#boton-resetear').forEach($botonResetear => $botonResetear.style.display = 'none');
+    document.querySelectorAll('#boton-quitar').forEach($botonQuitar => $botonQuitar.style.display = 'none');
 }
 
 
 function ocultarResultados(){
-    document.querySelectorAll('#resultados').forEach(function ($resultados){
-        $resultados.style.display = 'none';
-    });
+    document.querySelectorAll('#resultados').forEach($resultados => $resultados.style.display = 'none');
 }
 
 
@@ -147,15 +133,10 @@ function crearMensajeDeError(){
 
 
 function borrarMensajesDeError(){
-    //const $error = document.querySelectorAll('#errores');
-    document.querySelectorAll('#errores').forEach(function ($error){
-        $error.innerHTML = "";
-    });
+    document.querySelectorAll('#errores').forEach($error => $error.innerHTML = "");
 }
 
 
 function limpiarMarcosDeError(identificador){
-    document.querySelectorAll(`${identificador}`).forEach(function (sueldo){
-        sueldo.classList.remove('error');
-    });
+    document.querySelectorAll(`${identificador}`).forEach($sueldo => $sueldo.classList.remove('error'));
 }
