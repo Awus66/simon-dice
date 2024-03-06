@@ -86,8 +86,6 @@ function validarCantidadFamiliares(){
             $nuevoInput.classList.add('edad');
             $nuevoInput.classList.add('m-2');
             $nuevoInput.id = 'integrante' + (i);
-            $nuevoInput.min = '0';
-            $nuevoInput.max = '120';
             $nuevoInput.placeholder = 'Edad';
     
     
