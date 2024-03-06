@@ -46,9 +46,9 @@ function probarLimpiarMarcosDeError(){
     $prueba.id = "prueba";
     $prueba.classList.add('error');
     document.body.appendChild($prueba);
-    limpiarMarcosDeError('prueba');
+    limpiarMarcosDeError('#prueba');
     console.assert(
-        !($prueba.classList.contains('error')), 'La función limpiarMarcoError no limpió el marco rojo de error correctamente.'
+        !($prueba.classList.contains('error')), 'La función limpiarMarcosDeError no limpió el marco rojo de error correctamente.'
     );
 }
 
@@ -88,7 +88,7 @@ function probarMostrar(){
     $prueba.id = "prueba";
     $prueba.style.display = 'none';
     document.body.appendChild($prueba);
-    ocultar('#prueba');
+    mostrar('#prueba');
     console.assert(
         $prueba.style.display === '', 'La función "mostrar" no mostró el elemento correctamente.'
     );
